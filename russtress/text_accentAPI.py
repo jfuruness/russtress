@@ -136,27 +136,6 @@ class Accent(object):
             # print(accented_phrase)
 
             for token in tokens:
-                # print(accented_phrase)
-                '''
-                elif self.__is_in_dictionary(token):
-                    stressed_token = self.__dictionary_stress(token)
-                    if stressed_token is None:
-                        try:
-                            temp = accented_phrase[0].replace("'", '')
-                        except IndexError:
-                            temp = ''
-                        if temp == token.lower():
-                            stress_position = accented_phrase[0].find("'")
-                            final.append(token[:stress_position] + \
-                                stress_symbol + token[stress_position:])
-                            accented_phrase = accented_phrase[1:]
-                        else:
-                            final.append(token)
-                    else:
-                        final.append(stressed_token)
-                        accented_phrase = accented_phrase[1:]
-                '''
-
                 if self.__is_small(token):
                     final.append(token)
                 else:
@@ -167,7 +146,7 @@ class Accent(object):
                     if temp == token.lower():
                         stress_position = accented_phrase[0].find("'")
                         final.append(token[:stress_position] +
-                                     stress_symbol + token[stress_position:])
+                                     u"\u0301" + token[stress_position:])
                         accented_phrase = accented_phrase[1:]
                     else:
                         final.append(token)
